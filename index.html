@@ -4,15 +4,20 @@
     <meta charset="utf-8">
     <title>The Snake Game!</title>
     <link rel="stylesheet" href="main.css">
-    <script defer src="app.js" charset="utf-8"></script>
+   
   </head>
   <body>
 
     <main class="grid-wrapper">
         <h1>The Snake Game</h1>
         <section class="grid"></section>
-        <h3>Score</h3>
-        <button>Start</button>
+        <div class="score">0</div>
+        <button id="startBtn" >Start!</button>
+        <div id="textField" style="display: none;">
+          Game Over!
+        </div>
+        
     </main>
   </body>
 </html>
+<script src="app.js"></script>

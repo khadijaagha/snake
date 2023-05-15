@@ -1,121 +1,214 @@
-/*----- constants -----*/
+
+    /*----- constants -----*/
+    let cell;
+    let cells;
+    let width = 20;
+    let height = 20;
+    let cellCount;
+    let snakeDirection = -1;
+    let randomFruitPosition;
+
+    /*----- state variables -----*/
+    let score = 0;
+    let grid;
+    let speedOfSnake = 1000; //1s
+    let alive = true;
+    let tail = [];
+    let timer;
+    let startGame = false;
+    let snake = [189, 190];
+
+    /*----- cached elements  -----*/
+
+    let scoreDisplay = document.querySelector('.score');
+    let startBtn = document.querySelector("button");
 
 
-/*----- state variables -----*/
-let score;
-let grid;
-let speedOfSnake;
-let snake = [188,189];
 
-/*----- cached elements  -----*/
+    /*----- functions -----*/
 
 
-let startBtn = document.querySelector("button");
+    render();
+
+    function render() {
+        renderGrid();
+        addSnake();
+        renderFruits();
+    }
 
 
-/*----- event listeners -----*/
+    function renderGrid() {
+        // ? VARIABLES
+        grid = document.querySelector(".grid");
+        cellCount = width * height
+        cells = []
+        createGrid();
+    }
 
+        function createGrid() {
+            for (let i = 0; i < cellCount; i++) {
+               
+                cell = document.createElement('div');
+                cell.dataset.index = i;
+                cell.style.height = `${100 / height}%`
+                cell.style.width = `${100 / width}%`
+                grid.appendChild(cell);
+                cells.push(cell)
 
-/*----- functions -----*/
-init();
+            }
+        }
 
-function init(){
+    function addSnake() {
+        const [snakeHead, ...restOfTheSnake] = snake;
+        console.log(snakeHead);
+        console.log(restOfTheSnake);
+        cells[snakeHead].classList.add('snake-head');
+        restOfTheSnake.forEach(function (index) {
+            cells[index].classList.add("square");
+        })
+
+    }
+
+    function removeSnake() {
+
+        const [snakeHead, ...restOfTheSnake] = snake;
+        cells[snakeHead].classList.remove('snake-head');
+        restOfTheSnake.forEach(function (index) {
+            cells[index].classList.remove("square");
+        })
+    }
+
+    function handleSnakeDirection(event) {
+        event.preventDefault();
+        const key = event.keyCode
+        const up = 38
+        const down = 40
+        const left = 37
+        const right = 39
 
    
-//create grid
+        removeSnake();
 
+       
+        if (key === up && snakeDirection !== width) {
 
+            snakeDirection = -width;
+        } else if (key === down) {
 
-//intialise the score = 0
+            snakeDirection = +width
+        } else if (key === left) {
+            snakeDirection = -1
 
-//key controls - arrowup/left/right/down
+        } else if (key === right) {
 
-//estabilsh the snake (starting position, speed)
+            snakeDirection = 1
 
-//if snake touches edges of board or itself 
+        } else {
+            console.log('INVALID KEY')
+        }
 
-//random fruit generator
+        addSnake();
 
-
-
-}
-
-
-render();
-
-function render(){
-    renderScore();
-    renderSnake();
-    renderFruits();
-    renderGrid();
-}
-
-function renderGrid(){
-    // ? VARIABLES
-    const grid = document.querySelector(".grid");
-  // BOARD CONFIG
-  const width = 20
-  const height = 10
-  const cellCount = width * height
-  let cells = []
-    
-    function createGrid(){
-        for (let i = 0; i < cellCount; i++){
-        // Create div cell
-        const cell = document.createElement('div');
-        // Add index to div element
-        cell.innerText = i;
-        // Add index as an attribute
-        cell.dataset.index = i;
-        // Add the height & width to each grid cell (div)
-        cell.style.height = `${100 / height}%`
-        cell.style.width = `${100 / width}%`
-        console.log(grid);
-        // Add cell to grid
-        grid.appendChild(cell);
-        // Add newly created div cell to cells array
-        cells.push(cell)
-        
-      }
-      
     }
-    createGrid();
-    
-}
-
-function addSnake(position){
-    const startingPosition = 0
-    let currentPosition = startingPosition
-    console.log('SNAKE BEING ADDED TO THE FOLLOWING CELL ->', position)
-    //get snake to move straight ahead at default speed
-    
-  
-}
-function handleMovement () {
-    //controls for the snake (arrow up/left/down/right)
-    //if snake touches the edges of the grid or itself, 
-    //variabes to store the keycode and using if..else if.
-}
-
-function renderScore (){
-//when snake eats fruit -> score+=1
-//
-
-}
 
 
+    //! make snake move constantly
 
-function renderFruits (){
-    //mathfloor.random etc. to generate randoom pngs of fruits on the grid
-    //when snake comes in contact with the fruit - remove 'fruit' class from the particular cell (do i include this here or with renderSnake?)\
-    // as a result, snake tail gets longer by a cell .
-    
-}
+    function constantMovement() {
+        let currentPosition = snake[0];
+        const newPosition = snake[0] + snakeDirection;
+       
+        if (snakeDirection === -width && newPosition < width) { 
+            console.log('UP');
+            gameOverMessage();
+            
+        } else if (snakeDirection === width && newPosition >= cellCount) {
+            console.log('DOWN');
+            gameOverMessage();
+            
+        } else if (snakeDirection === 1 && (currentPosition % width === width - 1)) {
+            console.log('RIGHT');
+            gameOverMessage();
+            
+        } else if (snakeDirection === -1 && (snake[0] % width === 0)) {
+            console.log('LEFT');
+            gameOverMessage();
 
-function gameOverMessage (){
-    let message = document.createElement("p");
-    message.innerText = "Game Over!"
-    //for if the player accidentally touches the edges or itself, it should pop up with a message "Game Over!"
-}
+        } else if (cells[snake[0]].classList.contains('square')) {
+            gameOverMessage();
+        }
 
-//! challenge - increasing speed everytime ?
+        removeSnake();
+        snake.pop();
+        snake.unshift(snake[0] + snakeDirection);
+        addSnake();
+        snakeEatFruit();
+
+
+    }
+    const snakeMovementTimer = () => {
+        timer = setInterval(() => {
+            if(startGame == true)
+            {
+                constantMovement();
+            }
+        }, speedOfSnake)
+
+    }
+
+    snakeMovementTimer();
+
+    /*----- event listeners -----*/
+    document.addEventListener('keydown', handleSnakeDirection)
+
+    function gameOverMessage() {
+        displayText();
+        clearInterval(timer);
+    }
+
+    function displayText() {
+        let text = document.getElementById("textField");
+        text.style.display = "block";
+        text.style.fontSize = "50px";
+        text.style.color = 'white';
+        text.style.fontWeight = "bold";
+      }
+
+    function renderFruits() {
+        randomFruitPosition = Math.floor(Math.random() * cellCount);
+        cells[randomFruitPosition].classList.add('fruit');
+        console.log(cells[randomFruitPosition]);
+        
+    }
+
+
+
+    function snakeEatFruit() {
+        console.log(snake[0]);
+        if (cells[snake[0]].classList.contains('fruit')) {
+            console.log("snake ate fruit");
+            cells[snake[0]].classList.remove('fruit');
+            score++
+            speedOfSnake -= 52; 
+            scoreDisplay.innerText = score;
+            console.log(score);
+            console.log(scoreDisplay);
+            renderFruits();
+
+            snake.push(snake.length - 1);
+
+        }
+    }
+
+    startBtn.addEventListener("click", startGameBtn);
+
+    function startGameBtn()
+    {
+        if(startGame == true)
+        {
+            location.reload();
+        }
+
+        startBtn.innerText = "Restart"
+        startGame = true;
+    }

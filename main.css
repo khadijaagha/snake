@@ -6,9 +6,10 @@
     height: 100vh;
     margin: 0;
     font-family: Helvetica;
-      
+    background-image: url(https://i.pinimg.com/originals/8e/a3/62/8ea3624fe1c12c3d717b4530e3d3de07.jpg);
+    background-repeat: no-repeat;
+    background-size: fill;
   }
-  
   
   .grid-wrapper {
     height: 100vh;
@@ -21,6 +22,7 @@
   .grid {
     align-items: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(132, 212, 132);
     display: flex;
     flex-wrap: wrap;
     height: 100%;
@@ -30,7 +32,7 @@
   }
   
   .grid div {
-    border: 1px solid rgb(188, 31, 178);
+    border: 1px solid rgb(58, 130, 79);
     flex-grow: 1;
     height: 10%;
     width: 10%;
@@ -42,11 +44,53 @@
     align-items: center;
   }
 
-  h3 {
+  .score {
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-weight: bold;
+    relative
   }
 
 
-  .grid div.snake {}
+  .square {
+    background-color: rgb(144, 249, 118); 
+
+  }
+
+  .snake-head {
+    background-color: rgb(68, 86, 28);
+    
+  }
+
+  .fruit {
+    background-color: rgb(250, 140, 213);
+  }
+
+ #startBtn {
+  background-color: lightgreen;
+  color: rgb(7, 48, 17);
+  font-weight: bold;
+  font-size: large;
+  size: 100px;
+  padding: 16px 30px;
+ }
+
+ #startBtn:hover {
+  background-color: rgb(34, 61, 34);
+  color: white;
+ }
+
+ .score {
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  font-size: large;
+ }
+
+ h1{
+  color: aliceblue;
+  text-shadow: 1px 1px 1px green, 2px 2px 1px green;
+
+
+ }
