@@ -1,32 +1,32 @@
-# snake
+# Snake ReadMe
 
-Description
+**Description**
 
 This is project 1 in week 3 of the software engineering immersive at General Assembly. After learning the fundamentals of JavaScript, this project allowed me to apply the skills I learnt. Out of a range of options, I chose to create the first 1997 established game, Snake.  
 
 
-Deployment link:
+**Deployment link:**
 
 https://khadijaagha.github.io/snake/
 
 
 
-Getting Started/Code Installation
+**Getting Started/Code Installation**
 
 Just click on the deployment link. It should lead you to the game, press the ‘Start’ button and use your keys to play !
 
 
-Timeframe & Working Team
+**Timeframe & Working Team**
 
 This was an individual project to be completed in a week. 
 
-Technologies Used
+**Technologies Used**
 
 HTML, CSS & JavaScript
 
 
 
-Brief
+**Brief**
 
 Snake is a single-player game where the player earns points by guiding the snake to eat food randomly placed on the game board. Each item of food the snake eats the longer it grows. The game is over if the snake hits the edge of the board, or itself. To make things even more challenging, the snake increases speed as the longer it gets!
 The aim of the game is to stay alive as long as possible.
@@ -51,7 +51,7 @@ While not immediately obvious, the logic required to make the game work is relat
 
 
 
-Planning
+**Planning**
 
 I started with a wireframe to roughly visualise what I wanted my game to look like. I used Figma as suggested by my instructors to produce this image. I went for a simple look, I did not focus on the CSS too much as this project was more concerned with the functionality (JavaScript) of the game.
 
@@ -61,7 +61,7 @@ I started with a wireframe to roughly visualise what I wanted my game to look li
 
 
 
-Pseudocode:
+**Pseudocode:**
 
 /*----- constants -----*/
 Height board
@@ -120,19 +120,17 @@ Day 5:
 CSS styling 
 
 
-GIve or take a day in case of errors and code that takes longer to figure out.
+Give or take a day in case of errors and code that takes longer to figure out.
 
 
 
-
-Build/Code Process
+**Build/Code Process**
 
 
 I started off with having a render function, that upon reload will trigger the rendering of the game board, the snake, and the fruits as shown below, and is initiated right in the beginning so it is called to be rendered every time a new game starts:
 
 
 <img width="440" alt="Screenshot 2023-08-13 at 16 05 22" src="https://github.com/khadijaagha/snake/assets/130927994/69c16598-abe9-4f85-b6aa-f6e2f53e8681">
-
 
 
 
@@ -176,7 +174,7 @@ renderFruits();: This function is responsible for placing new fruits on the game
 
 
 
-Challenges
+**Challenges**
 
 
 The whole project was a challenge for me in the sense, this was my first coding project testing newly learnt skills to an independent project which was definitely quite intimidating for me but along the way a lot of my understanding of the fundamentals improved through thorough researching on the internet. 
@@ -193,7 +191,7 @@ Then every time the snake eats a fruit, the speed of the snake is reduced by 60 
 <img width="1237" alt="Screenshot 2023-08-13 at 16 07 05" src="https://github.com/khadijaagha/snake/assets/130927994/c4c56b83-ad8d-45a3-88fa-b8975f80998d">
 
 
-Wins
+**Wins**
 
 Experiencing the smooth movement of the snake on the grid brought immense satisfaction to the development process. Witnessing it come to life, even if it took some time to execute, was truly rewarding. However, the real sense of achievement came when the game over function flawlessly detected collisions with the grid borders or the snake's own body. It marked a significant milestone, bringing me one step closer to creating a fully functional game. This progress fueled my motivation and excitement to further enhance and fine-tune the game, making it even more engaging and enjoyable for players.
 
@@ -202,7 +200,7 @@ Additionally, throughout the development of this game I was consolidating my lea
 Throughout the development of this game, I found myself continually consolidating and expanding my learning. This process not only honed my programming skills but also significantly improved my research abilities. Understanding the fundamentals, such as manipulating arrays and using functions, instilled a greater sense of comfort and confidence in my coding capabilities. With each challenge I faced and conquered, I grew more adept at problem-solving and gained valuable experience in developing interactive applications. This project has been an invaluable learning journey, motivating me to embrace future coding challenges with enthusiasm and determination
 
 
-Key Learnings/Takeaways
+**Key Learnings/Takeaways**
 
 Better understanding of local scope vs. global scope:	
 Throughout the project, I deepened my comprehension of local and global scope in JavaScript. I now appreciate the significance of keeping variables localised within functions (local scope) to prevent unintended side effects and maintain code clarity. On the other hand, I recognize the usefulness of global scope for variables needed across multiple functions or throughout the entire program. This understanding has helped me write cleaner and more organised code, ensuring that variables are appropriately scoped to enhance code readability and prevent potential conflicts.
@@ -213,7 +211,7 @@ My experience with array destructuring was an eye-opener in terms of simplifying
 These key learnings have not only enriched my current project but also laid a solid foundation for future advancements in my coding journey. With a deeper understanding of local and global scope, a strong grasp of functions, and proficiency in array destructuring, I am now better equipped to tackle more challenging projects and explore advanced concepts with confidence and enthusiasm.
 
 
-Bugs
+**Bugs**
 
 The snake tail glitches occasionally, the last cell of the snake’s tail splits from the snake and appears at the opposite side of the grid.
 Snake speed isn’t as smooth as desired.
@@ -224,7 +222,7 @@ Additionally, Thoroughly testing my game to identify specific scenarios where th
 
 
 
-Future Improvements
+**Future Improvements**
 
 Snake speed can be more cohesive and fluid.
 UI/CSS - the game over message could be formatted more aesthetically as well as the score tracker + font as it is a bit crowded.
