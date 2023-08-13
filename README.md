@@ -203,11 +203,17 @@ Throughout the development of this game, I found myself continually consolidatin
 **Key Learnings/Takeaways**
 
 Better understanding of local scope vs. global scope:	
+
 Throughout the project, I deepened my comprehension of local and global scope in JavaScript. I now appreciate the significance of keeping variables localised within functions (local scope) to prevent unintended side effects and maintain code clarity. On the other hand, I recognize the usefulness of global scope for variables needed across multiple functions or throughout the entire program. This understanding has helped me write cleaner and more organised code, ensuring that variables are appropriately scoped to enhance code readability and prevent potential conflicts.
+
 Functions in general - Crucial foundation for advanced topics such as using Node.js/express:
 Gaining a strong grasp of functions during the project was invaluable, as they serve as the building blocks of JavaScript applications. I now realise the pivotal role functions play in code modularity and reusability, making it easier to manage complex projects. Understanding functions is particularly essential as I progress to more advanced topics like using Node.js and Express for server-side development. By mastering functions, I have equipped myself with a powerful tool to structure code logically, promote efficient debugging, and enhance the overall maintainability of my projects.
+
 Array destructuring - Simplifying array manipulation:
+
 My experience with array destructuring was an eye-opener in terms of simplifying array manipulation tasks. I learned how to elegantly extract values from arrays and assign them to variables, streamlining my code and making it more expressive. This technique proved valuable in scenarios where I needed to access specific elements from an array or handle multiple return values from functions efficiently. Embracing array destructuring has not only improved the readability of my code but also enhanced my understanding of JavaScript's powerful capabilities when working with complex data structures.
+
+
 These key learnings have not only enriched my current project but also laid a solid foundation for future advancements in my coding journey. With a deeper understanding of local and global scope, a strong grasp of functions, and proficiency in array destructuring, I am now better equipped to tackle more challenging projects and explore advanced concepts with confidence and enthusiasm.
 
 
